@@ -1,8 +1,5 @@
-import { onSnapshot, collection } from 'firebase/firestore'
-import React, { useEffect, useState } from 'react'
-import { Button } from 'react-bootstrap'
+import React from 'react'
 import { useUserAuth } from '../context/UserAuthContext'
-import { db } from '../firebase'
 import Riders from './Riders'
 
 function Home() {
@@ -14,16 +11,6 @@ function Home() {
          console.log(err.message)
       }
    }
-
-   // const [riders, setRiders] = useState([])
-
-   // useEffect(
-   //    () =>
-   //       onSnapshot(collection(db, 'riders'), (snapshot) => {
-   //          setRiders(snapshot.docs.map((doc) => doc.data()))
-   //       }),
-   //    []
-   // )
 
    return (
       <>

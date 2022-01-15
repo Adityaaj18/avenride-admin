@@ -1,27 +1,37 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { Form, Alert } from 'react-bootstrap'
-import { Button } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Alert } from 'react-bootstrap'
 import GoogleButton from 'react-google-button'
 import { useUserAuth } from '../context/UserAuthContext'
+import { useParams } from 'react-router-dom'
+import { onSnapshot, collection, where, query } from 'firebase/firestore'
+import { db } from '../firebase'
 
 const Login = () => {
-   const [email, setEmail] = useState('')
-   const [password, setPassword] = useState('')
    const [error, setError] = useState('')
-   const { logIn, googleSignIn, user } = useUserAuth()
+   const { googleSignIn, user } = useUserAuth()
    const navigate = useNavigate()
 
-   // const handleSubmit = async (e) => {
-   //    e.preventDefault()
-   //    setError('')
-   //    try {
-   //       await logIn(email, password)
-   //       navigate('/home')
-   //    } catch (err) {
-   //       setError(err.message)
-   //    }
-   // }
+   const { id } = useParams()
+
+   const [userDetail, setUserDetails] = useState([])
+
+   const colRef = collection(db, 'users')
+
+   const q = query(colRef, where('admin', '==', true))
+
+   useEffect(
+      () =>
+         onSnapshot(q, (snapshot) => {
+            console.log(snapshot.docs.map((doc) => doc.data().name))
+            setUserDetails(snapshot.docs.map((doc) => doc.data()))
+         }),
+      []
+   )
+
+   const isAdmin = userDetail.map((user) => user.admin)
+
+   console.log(userDetail.map((user) => user.admin))
 
    const handleGoogleSignIn = async (e) => {
       e.preventDefault()

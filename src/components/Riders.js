@@ -31,9 +31,7 @@ function Riders() {
                               key={rider.id}
                            >
                               {rider.name}
-                              <a key={rider.id} id="unverified">
-                                 Unverified
-                              </a>
+                              <p id="unverified">Unverified</p>
                            </li>
                         </Link>
                      </div>

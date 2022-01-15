@@ -16,7 +16,7 @@ function App() {
                   <UserAuthContextProvider>
                      <Routes>
                         <Route path="/" element={<Login />} />
-                        <Route path="home" element={<Home />} />
+                        <Route path="/home" element={<Home />} />
                         <Route path="/details/:id" element={<Details />} />
                      </Routes>
                   </UserAuthContextProvider>

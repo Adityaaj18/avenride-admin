@@ -90,16 +90,54 @@ body {
    max-width: 60vw;
    align-items: center;
    margin-left: 150px;
-   margin-top: 40px;
 }
 
 .container1 {
    margin-right: 60px;
    margin-left: 50px;
    width: 20rem;
-   height: 30rem;
+   height: 33rem;
 }
 
 .container2 .card {
    width: 20rem;
+}
+
+/* Mobile device */
+
+@media (max-width: 767px) {
+   .avenride-login {
+      margin: 300px 0px 30px 30px;
+   }
+   .card {
+      margin: 25px 0px 0px 10px;
+   }
+   .login-card {
+      margin-top: 100px;
+      padding: 80px 30px;
+   }
+
+   .list-group-item {
+      padding: 1.5rem 1rem;
+   }
+
+   .rider p {
+      margin-bottom: 0;
+   }
+
+   .container-main {
+      background-color: rgb(245, 243, 243);
+      display: flex;
+      flex-direction: column;
+      margin-right: 160px;
+   }
+
+   .container1 {
+      width: 20rem;
+      height: 33rem;
+   }
+
+   .container2 {
+      margin-bottom: 40px;
+   }
 }
