@@ -107,10 +107,13 @@ body {
 
 @media (max-width: 767px) {
    .avenride-login {
-      margin: 300px 0px 30px 30px;
+      margin: 200px 0px 30px 30px;
+   }
+   .riders {
+      width: 80vw;
    }
    .card {
-      margin: 25px 0px 0px 10px;
+      margin: 25px 0px 0px 0px;
    }
    .login-card {
       margin-top: 100px;
@@ -126,7 +129,7 @@ body {
    }
 
    .container-main {
-      background-color: rgb(245, 243, 243);
+      background-color: #fafafa;
       display: flex;
       flex-direction: column;
       margin-right: 160px;
