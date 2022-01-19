@@ -6,6 +6,8 @@ import ProtectedRoute from './components/ProtectedRoute'
 import { Col, Container, Row } from 'react-bootstrap'
 import { UserAuthContextProvider } from './context/UserAuthContext'
 import Details from './components/Details'
+import Update from './components/Update'
+import Qrcode from './components/Qrcode'
 
 function App() {
    return (
@@ -18,6 +20,8 @@ function App() {
                         <Route path="/" element={<Login />} />
                         <Route path="/home" element={<Home />} />
                         <Route path="/details/:id" element={<Details />} />
+                        <Route path="/update/:id" element={<Update />} />
+                        <Route path="/qrcode/:id" element={<Qrcode />} />
                      </Routes>
                   </UserAuthContextProvider>
                </Col>

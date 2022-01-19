@@ -86,6 +86,7 @@ body {
 }
 
 .aproove {
+   margin-top: 10px;
    border-radius: 20px;
 }
 
@@ -106,6 +107,37 @@ body {
 
 .container2 .card {
    width: 20rem;
+}
+
+.form-group {
+   margin-top: 40px;
+   width: 60vw;
+}
+
+.update-btn {
+   margin-top: 10px;
+   margin-right: 20px;
+   border-radius: 20px;
+}
+
+.btn-dark {
+   margin-top: 10px;
+   border-radius: 20px;
+}
+
+.text-center {
+   margin-top: 20vh;
+}
+
+.img-thumbnail {
+   min-width: 250px;
+   min-height: 250px;
+   margin-bottom: 10px;
+}
+
+.print i {
+   margin-right: 10px;
+   font-family: 'Courier New', Courier, monospace;
 }
 
 /* Mobile device */
@@ -139,7 +171,7 @@ body {
       background-color: #fafafa;
       display: flex;
       flex-direction: column;
-      margin-right: 160px;
+      margin-right: 150px;
    }
 
    .container1 {
@@ -149,5 +181,18 @@ body {
 
    .container2 {
       margin-bottom: 40px;
+   }
+   .form-group input {
+      width: 80vw;
+      margin-left: 25px;
+   }
+   #update {
+      padding: 8px 25px;
+      border-radius: 20px;
+      margin-left: 30vw;
+   }
+   .img-thumbnail {
+      min-width: 250px;
+      min-height: 200px;
    }
 }

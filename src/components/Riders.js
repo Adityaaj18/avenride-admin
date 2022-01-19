@@ -27,8 +27,8 @@ function Riders() {
                      <div className="rider">
                         <Link to={`/details/${rider.id}`}>
                            <li
-                              className="list-group-item d-flex justify-content-between align-items-center"
                               key={rider.id}
+                              className="list-group-item d-flex justify-content-between align-items-center"
                            >
                               {rider.name}
                               <p id="unverified">Unverified</p>

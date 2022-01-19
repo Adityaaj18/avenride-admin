@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { db } from '../firebase'
 import { onSnapshot, collection, where, query } from 'firebase/firestore'
 
@@ -37,9 +37,21 @@ const Details = () => {
                      <h5>Id:- {user.id} </h5>
                      <h5>Email:- {user.email} </h5>
                      <h5>Personal Docs:- {user.personaldocs}</h5>
+
+                     <Link to={`/update/${user.id}`}>
+                        <button className="btn btn-primary  update-btn">
+                           Update
+                        </button>
+                     </Link>
+
                      <a href="#" className="btn btn-warning aproove">
                         Aproove
                      </a>
+                     <Link to={`/qrcode/${user.id}`}>
+                        <button type="button" className="btn btn-dark">
+                           Generate QR Code
+                        </button>
+                     </Link>
                   </div>
                )
             })}
@@ -66,6 +78,9 @@ const Details = () => {
                         <h5 className="card-title">
                            Bank Docs:- {user.bankdocs}
                         </h5>
+                        <button className="btn btn-primary  update-btn">
+                           Update
+                        </button>
                         <a href="#" className="btn btn-warning aproove">
                            Aproove
                         </a>
@@ -93,6 +108,9 @@ const Details = () => {
                         <h5 className="card-title">
                            Vehicle Docs:- {user.vehicledocs}{' '}
                         </h5>
+                        <button className="btn btn-primary  update-btn">
+                           Update
+                        </button>
                         <a href="#" className="btn btn-warning aproove">
                            Aproove
                         </a>
