@@ -9,6 +9,8 @@ function Riders() {
 
    const [riders, setRiders] = useState([])
 
+   console.log(riders.map((rider) => rider.alldocs))
+
    useEffect(
       () =>
          onSnapshot(collection(db, 'riders'), (snapshot) => {

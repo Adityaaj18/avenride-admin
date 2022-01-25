@@ -1,60 +1,87 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { db } from '../firebase'
-import fireDb from '../firebase'
-import { useParams } from 'react-router-dom'
+import { doc, updateDoc } from 'firebase/firestore'
 
-function Update() {
-   const [state, setState] = useState([])
-   const [data, setData] = useState({})
+function Update({ user, setEditBox1 }) {
+   const [name, setName] = useState(user.name)
+   const [contact, setContact] = useState(user.mobileNo)
+   const [email, setEmail] = useState(user.email)
+   const [personalDocs, setPersonalDocs] = useState(user.personaldocs)
 
-   const { name, email } = state
+   const ref = doc(db, 'riders', user.id)
 
-   const { id } = useParams()
+   // getDocs(ref)
+   //    .then((snapshot) => {
+   //       console.log(snapshot.docs)
+   //    })
+   //    .catch((err) => {
+   //       console.log(err)
+   //    })
 
-   useEffect(() => {
-      fireDb.child('riders').on('value', (snapshot) => {
-         if (snapshot.val() != null) {
-            setData({ ...snapshot.val() })
-         } else {
-            setData()
-         }
+   function editDoc() {
+      updateDoc(ref, {
+         name: name,
+         mobileNo: contact,
+         email: email,
+         personaldocs: personalDocs
       })
-
-      return () => {
-         setData({})
-      }
-   }, [id])
-
-   useEffect(() => {
-      if (id) {
-         setState({ ...data[id] })
-      }
-   }, [id, data])
-
-   const handleSubmit = () => {}
+   }
 
    return (
-      <div>
-         <form onSubmit={handleSubmit}>
-            <div className="form-group">
-               <input
-                  className="form-control"
-                  id="exampleInputEmail1"
-                  value={name}
-               />
-            </div>
-            <div className="form-group">
-               <input
-                  className="form-control"
-                  id="exampleInputPassword1"
-                  value={email}
-               />
-            </div>
-            <br />
-            <button type="submit" className="btn btn-primary">
-               Submit
+      <div className="form">
+         <label>Edit Details</label>
+         <div className="form-group">
+            <input
+               className="form-input"
+               type="text"
+               value={name}
+               onChange={(e) => setName(e.target.value)}
+            />
+         </div>
+         <div className="form-group">
+            <input
+               className="form-input"
+               value={contact}
+               type="text"
+               onChange={(e) => setContact(e.target.value)}
+            />
+         </div>
+         <div className="form-group">
+            <input
+               className="form-input"
+               value={email}
+               type="text"
+               onChange={(e) => setEmail(e.target.value)}
+            />
+         </div>
+         <div className="form-group">
+            <input
+               className="form-input"
+               value={personalDocs}
+               type="text"
+               onChange={(e) => setPersonalDocs(e.target.value)}
+            />
+         </div>
+         <div className="buttons">
+            <button
+               className="btn btn-success update-form1"
+               onClick={() => {
+                  editDoc()
+                  setEditBox1(false)
+               }}
+            >
+               update
             </button>
-         </form>
+            <button
+               className="btn btn-danger cancel-form1"
+               id="update"
+               onClick={() => {
+                  setEditBox1(false)
+               }}
+            >
+               Cancel
+            </button>
+         </div>
       </div>
    )
 }
