@@ -9,6 +9,7 @@ function Update({ user, setEditBox1 }) {
    const [personalDocs, setPersonalDocs] = useState(user.personaldocs)
 
    const ref = doc(db, 'riders', user.id)
+   console.log(typeof user.id)
 
    // getDocs(ref)
    //    .then((snapshot) => {

@@ -9,7 +9,7 @@ function Riders() {
 
    const [riders, setRiders] = useState([])
 
-   console.log(riders.map((rider) => rider.alldocs))
+   //console.log(riders.map((rider) => rider.alldocs))
 
    useEffect(
       () =>
@@ -25,8 +25,8 @@ function Riders() {
             <h1>All Riders</h1>
             <div className="riders-list">
                <ul className="list-group">
-                  {riders.map((rider) => (
-                     <div className="rider">
+                  {riders.map((rider, index) => (
+                     <div key={index} className="rider">
                         <Link to={`/details/${rider.id}`}>
                            <li
                               key={rider.id}

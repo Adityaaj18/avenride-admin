@@ -205,6 +205,95 @@ body {
    justify-content: center;
 }
 
+#active {
+   padding: 8px 40px;
+   border-radius: 20px;
+}
+
+/* Help */
+
+.help-box {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin-top: 20vh;
+}
+.help-box div {
+   width: 40vw;
+   height: 80px;
+   text-align: center;
+   color: rgb(208, 123, 248);
+}
+.help-box a {
+   text-decoration: none;
+}
+.help-box div:hover {
+   background-color: rgb(249, 250, 198);
+   cursor: pointer;
+}
+.card-body {
+   font-size: 20px;
+   align-items: center;
+   text-align: center;
+   font-weight: 500;
+}
+
+/* Collapse */
+.accordion {
+   width: 60vw;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.accordion .card {
+   width: 100%;
+}
+
+.accordion-tab {
+   align-items: center;
+}
+
+.accordion-tab .accordion-toggle {
+   display: none;
+}
+
+.accordion-tab > label {
+   color: rgb(0, 0, 0);
+   position: relative;
+   width: 100%;
+   padding: 10px;
+}
+
+.accordion-tab > label:after {
+   content: '\f078';
+   font-family: fontawesome;
+   position: absolute;
+   top: 10px;
+   right: 20px;
+   transform: rotate(-90deg);
+   transition: transform 0.3s;
+}
+
+.accordion-tab > .accordion-toggle:checked ~ label:after {
+   transform: rotate(0deg);
+}
+
+.accordion-tab > .accordion-content {
+   max-height: 0;
+   transition: all 0.4s;
+   overflow: hidden;
+}
+
+.accordion-tab > .accordion-content > p {
+   padding: 20px;
+}
+
+.accordion-tab > .accordion-toggle:checked ~ .accordion-content {
+   max-height: 100vh;
+}
+
 /* Mobile device */
 
 @media (max-width: 767px) {
@@ -305,5 +394,37 @@ body {
 
    .form3 .update-form1 {
       margin-right: 40px;
+   }
+
+   .help-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30vh;
+   }
+
+   .help-box a {
+      text-decoration: none;
+   }
+   .help-box div {
+      width: 80vw;
+      text-align: center;
+      align-items: center;
+      height: 80px;
+      color: rgb(208, 123, 248);
+   }
+
+   .help-box div:hover {
+      background-color: rgb(249, 250, 198);
+   }
+   .card-body {
+      font-size: 18px;
+      font-weight: 500;
+   }
+
+   .accordion {
+      width: 80vw;
+      margin-left: auto;
    }
 }

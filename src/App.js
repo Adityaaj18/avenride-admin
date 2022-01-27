@@ -7,6 +7,9 @@ import { Col, Container, Row } from 'react-bootstrap'
 import { UserAuthContextProvider } from './context/UserAuthContext'
 import Details from './components/Details'
 import Qrcode from './components/Qrcode'
+import Help from './components/Help'
+import Page1 from './components/Page1'
+import Page2 from './components/Page2'
 
 function App() {
    return (
@@ -20,6 +23,9 @@ function App() {
                         <Route path="/home" element={<Home />} />
                         <Route path="/details/:id" element={<Details />} />
                         <Route path="/qrcode/:id" element={<Qrcode />} />
+                        <Route path="/help" element={<Help />} />
+                        <Route path="/help/page1" element={<Page1 />} />
+                        <Route path="/help/page2" element={<Page2 />} />
                      </Routes>
                   </UserAuthContextProvider>
                </Col>
